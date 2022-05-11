@@ -140,9 +140,11 @@ $product =[
     <nav class="nav">
         <ul class="nav__list container">
             <!--заполните этот список из массива категорий-->
+            <?php foreach ($product as $ins) {?>
             <li class="nav__item">
-                <a href="pages/all-lots.html">Название категории</a>
+                <a href="pages/all-lots.html"><?= $ins['category'] ?></a>
             </li>
+            <?php } ?>
         </ul>
     </nav>
     <div class="main-footer__bottom container">
