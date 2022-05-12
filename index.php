@@ -3,45 +3,80 @@ $is_auth = rand(0, 1);
 
 $user_name = 'Itashiro'; // укажите здесь ваше имя
 
-$main = ['Доски и лыжи', 'Крепления', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
+$main = [
+    [
+        'eng' => "boards",
+        'rus' => "Доски и лыжи",
+
+    ],
+    [
+        'eng' => "attachment",
+        'rus' => "Крепления",
+
+    ],
+    [
+        'eng' => "boots",
+        'rus' => "Ботинки",
+
+    ],
+    [
+        'eng' => "clothing",
+        'rus' => "Одежда",
+
+    ],
+    [
+        'eng' => "tools",
+        'rus' => "Инструменты",
+
+    ],
+    [
+        'eng' => "other",
+        'rus' => "Разное",
+
+    ]
+];
 $product =[
     [
         'name' => "2014 Rossignol District Snowboard",
-        'category' => "$main[0]",
+        'category' => "Доски и лыжи",
         'price' => "10999",
         'img' => "img/lot-1.jpg"
     ],
     [
         'name' => "DC Ply Mens 2016/2017 Snowboard",
-        'category' => "$main[0]",
+        'category' => "Доски и лыжи",
         'price' => "159999",
         'img' => "img/lot-2.jpg"
     ],
     [
         'name' => "Крепления Union Contact Pro 2015 года размер L/XL",
-        'category' => "$main[1]",
+        'category' => "Крепления",
         'price' => "8000",
         'img' => "img/lot-3.jpg"
     ],
     [
         'name' => "Ботинки для сноуборда DC Mutiny Charocal",
-        'category' => "$main[2]",
+        'category' => "Ботинки",
         'price' => "10999",
         'img' => "img/lot-4.jpg"
     ],
     [
         'name' => "Куртка для сноуборда DC Mutiny Charocal",
-        'category' => "$main[4]",
+        'category' => "Инструменты",
         'price' => "7500",
         'img' => "img/lot-5.jpg"
     ],
     [
         'name' => "Маска Oakley Canopy",
-        'category' => "$main[5]",
+        'category' => "Разное]",
         'price' => "5400",
         'img' => "img/lot-6.jpg"
     ]
 ];
+
+    function numberFormat(){
+
+    }
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -91,7 +126,6 @@ $product =[
         </nav>
     </div>
 </header>
-
 <main class="container">
     <section class="promo">
         <h2 class="promo__title">Нужен стаф для катки?</h2>
@@ -99,8 +133,8 @@ $product =[
         <ul class="promo__list">
             <?php foreach ($main as $ins) { ?>
             <!--заполните этот список из массива категорий-->
-            <li class="promo__item promo__item--boards">
-                <a class="promo__link" href="pages/all-lots.html"><?=$ins?></a>
+            <li class="promo__item promo__item--<?=$ins['eng']?>">
+                <a class="promo__link" href="pages/all-lots.html"><?=$ins['rus']?></a>
             </li>
             <?php } ?>
         </ul>
