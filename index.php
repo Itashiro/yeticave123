@@ -74,9 +74,23 @@ $product =[
     ]
 ];
 
-    function numberFormat(){
+function num_format($cost)
+{
+    $cost = ceil($cost);
+    if($cost>1000)
+        $cost = number_format($cost,0,""," ");
+    /*$cost = (int) $cost;*/
+    $cost .= '<b class="rub">р</b>';
+    return $cost;
+}
 
-    }
+function timeForm()
+{
+    $time2 =  strtotime('2022-05-12 24:00');
+    $time1 = time();
+    $diff = $time2 - $time1;
+    return gmdate('H:i', $diff);
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -156,10 +170,10 @@ $product =[
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost">цена <?= $ins["price"] ?><b class="rub">р</b></span>
+                            <span class="lot__cost"><?= num_format($ins["price"]) ?></span>
                         </div>
                         <div class="lot__timer timer">
-                            12:23
+                            <?= timeForm() ?>
                         </div>
                     </div>
                 </div>
