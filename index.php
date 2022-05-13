@@ -86,10 +86,10 @@ function num_format($cost)
 
 function timeForm()
 {
-    $time2 =  strtotime('2022-05-12 24:00');
-    $time1 = time();
+    $time2 =  strtotime('2022-05-12 24:00'); /*год не важен, только h:i:s*/
+    $time1 = time(); /*значение по умолчанию для timestamp*/
     $diff = $time2 - $time1;
-    return gmdate('H:i', $diff);
+    return gmdate('H:i', $diff); /*grinvich (-2 hours)*/
 }
 ?>
 <!DOCTYPE html>
