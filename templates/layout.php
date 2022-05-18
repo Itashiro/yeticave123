@@ -55,9 +55,15 @@
     <nav class="nav">
         <ul class="nav__list container">
             <!--заполните этот список из массива категорий-->
+<<<<<<< HEAD
             <?php foreach ($main as $ins) { ?>
                 <li class="nav__item">
                     <a href="pages/all-lots.html"><?= $ins['rus'] ?></a>
+=======
+            <?php foreach ($category as $ins) { ?>
+                <li class="nav__item">
+                    <a href="pages/all-lots.html"><?= $ins['name_category'] ?></a>
+>>>>>>> 23e7fa6 (Read&Show_8)
                 </li>
             <?php } ?>
         </ul>
