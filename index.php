@@ -6,7 +6,7 @@ mysqli_set_charset($link, utf8);
 
 if (!$link) {
     $error = mysqli_connect_error();
-    $content = include_template('error.php', ['error' => $error]);
+    $content = include_template('404.php', ['error' => $error]);
 }
 else {
     $sql = 'SELECT * FROM category';
@@ -17,7 +17,7 @@ else {
     }
     else {
         $error = mysqli_error($link);
-        $content = include_template('error.php', ['error' => $error]);
+        $content = include_template('404.php', ['error' => $error]);
     }
 
     $sql = 'SELECT * FROM lot left join category on lot.id_category=category.id_category';
@@ -28,7 +28,7 @@ else {
     }
     else {
         $error = mysqli_error($link);
-        $content = include_template('error.php', ['error' => $error]);
+        $content = include_template('404.php', ['error' => $error]);
     }
 }
 
