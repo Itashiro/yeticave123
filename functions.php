@@ -1,11 +1,7 @@
 <?php
 $is_auth = rand(0, 1);
 $user_name = 'Itashiro';
-<<<<<<< HEAD
-
-=======
 /*
->>>>>>> 23e7fa6 (Read&Show_8)
 $main = [
     [
         'eng' => "boards",
@@ -75,12 +71,8 @@ $product =[
         'price' => "5400",
         'img' => "img/lot-6.jpg"
     ]
-];
-<<<<<<< HEAD
-
-=======
+];=
 */
->>>>>>> 23e7fa6 (Read&Show_8)
 function num_format($cost)
 {
     $cost = ceil($cost);

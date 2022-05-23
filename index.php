@@ -1,12 +1,6 @@
 <?php
 require_once('functions.php');
 
-<<<<<<< HEAD
-$content = include_template('index.php',
-    [
-    'main'=>$main,
-    'product'=>$product
-=======
 $link = mysqli_connect('localhost', 'root', '','yeticave');
 mysqli_set_charset($link, utf8);
 
@@ -42,19 +36,13 @@ $content = include_template('index.php',
     [
     'category'=>$category,
     'goods'=>$goods
->>>>>>> 23e7fa6 (Read&Show_8)
     ]
 );
 $layout_content = include_template('layout.php',
     [
     'content' => $content,
-<<<<<<< HEAD
-    'product'=>$product,
-    'main'=>$main,
-=======
     'goods'=>$goods,
     'category'=>$category,
->>>>>>> 23e7fa6 (Read&Show_8)
     'title' => 'Главная страница',
     'is_auth'=>$is_auth,
     'user_name' => $user_name
