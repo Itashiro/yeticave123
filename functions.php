@@ -1,6 +1,16 @@
 <?php
-$is_auth = rand(0, 1);
-$user_name = 'Itashiro';
+
+session_start();
+
+$is_auth = isset($_SESSION['user_name']);
+$user_name = $_SESSION['user_name']??"";
+$avatar = $_SESSION['avatar']??"";
+$data['is_auth'] = $is_auth;
+$data['user_name']=$user_name;
+$data['avatar'] = $avatar;
+
+/*$is_auth = rand(0, 1);
+$user_name = 'Itashiro';*/
 
 function num_format($cost)
 {

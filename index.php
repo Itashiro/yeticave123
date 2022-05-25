@@ -35,7 +35,7 @@ else {
 $content = include_template('index.php',
     [
     'category'=>$category,
-    'goods'=>$goods
+    'goods'=>$goods,
     ]
 );
 $layout_content = include_template('layout.php',
@@ -45,6 +45,7 @@ $layout_content = include_template('layout.php',
     'category'=>$category,
     'title' => 'Главная страница',
     'is_auth'=>$is_auth,
+    'data' => $data,
     'user_name' => $user_name
     ]
 );

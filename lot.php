@@ -22,15 +22,18 @@ if(isset($_GET["id_lot"])){
     $result = mysqli_query($link, $sql);
     $bid = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-    $content = include_template('lot.php', ['array' => $array, 'lot_site'=>$lot_site, 'sum'=>$sum, 'bid' =>$bid, 'history'=>$history]);
+    $content = include_template('lot.php', ['array' => $array, 'lot_site'=>$lot_site, 'sum'=>$sum, 'bid' =>$bid, 'history'=>$history, 'is_auth'=>$is_auth,]);
     $layout_content = include_template('layout.php', [
         'content' => $content,  /*content*/
         'array' => $array,  /**/
+        'data' => $data,
         'category'=>$category, /*footer*/
         'title' => $lot_site['name_category'], /*title*/
         'body' => $sum,
         'bid' => $bid,
         'history' => $history,
+        'is_auth'=>$is_auth,
+        'user_name' => $user_name
     ]);
     if($lot_site["id_lot"] != $id ){   /*worked*/
         header("Location: 404.php");

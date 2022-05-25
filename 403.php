@@ -2,71 +2,85 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title><?= $title ?></title>
+    <title>DC Ply Mens 2016/2017 Snowboard</title>
     <link href="../css/normalize.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
-    <link href="../css/flatpickr.min.css" rel="stylesheet">
 </head>
-<body onload="start()">
+<body>
 <div class="page-wrapper">
-
     <header class="main-header">
         <div class="main-header__container container">
             <h1 class="visually-hidden">YetiCave</h1>
-            <a class="main-header__logo" href="index.php">
+            <a class="main-header__logo" href="../index.php">
                 <img src="../img/logo.svg" width="160" height="39" alt="Логотип компании YetiCave">
             </a>
             <form class="main-header__search" method="get" action="https://echo.htmlacademy.ru" autocomplete="off">
                 <input type="search" name="search" placeholder="Поиск лота">
                 <input class="main-header__search-btn" type="submit" name="find" value="Найти">
             </form>
-            <?php
-            if($is_auth == 1):
-            ?>
-            <a class="main-header__add-lot button" href="add.php">Добавить лот</a>
-            <?php else: ?>
-                <a class="main-header__add-lot button" href="403.php">Добавить лот</a>
-            <?php endif; ?>
+            <a class="main-header__add-lot button" href="add-lot.html">Добавить лот</a>
             <nav class="user-menu">
-                <?php
-                if($is_auth == 1):
-                    ?>
-                    <div class="user-menu__image">
-                        <img src="img/<?= $data['avatar']/*unknown -> не грузится*/ ?>" width="40" height="40" alt="">
-                    </div>
-                    <div class="user-menu__logged">
-                        <p><?= $user_name ?></p>
-                        <a href="../logout.php">Выход</a>
-                    </div>
-                <?php else: ?>
-                    <ul class="user-menu__list">
-                        <li class="user-menu__item">
-                            <a href="#">Регистрация</a>
-                        </li>
-                        <li class="user-menu__item">
-                            <a href="login.php">Вход</a>
-                        </li>
-                    </ul>
-                <?php endif; ?>
-                <!-- здесь должен быть PHP код для показа меню и данных пользователя -->
-
+                <ul class="user-menu__list">
+                    <li class="user-menu__item">
+                        <a href="sign-up.html">Регистрация</a>
+                    </li>
+                    <li class="user-menu__item">
+                        <a href="login.html">Вход</a>
+                    </li>
+                </ul>
             </nav>
         </div>
     </header>
-    <main class="container">
-        <?= $content ?>
+    <main>
+        <nav class="nav">
+            <ul class="nav__list container">
+                <li class="nav__item">
+                    <a href="all-lots.html">Доски и лыжи</a>
+                </li>
+                <li class="nav__item">
+                    <a href="all-lots.html">Крепления</a>
+                </li>
+                <li class="nav__item">
+                    <a href="all-lots.html">Ботинки</a>
+                </li>
+                <li class="nav__item">
+                    <a href="all-lots.html">Одежда</a>
+                </li>
+                <li class="nav__item">
+                    <a href="all-lots.html">Инструменты</a>
+                </li>
+                <li class="nav__item">
+                    <a href="all-lots.html">Разное</a>
+                </li>
+            </ul>
+        </nav>
+        <section class="lot-item container">
+            <h2>403 Отказано в доступе</h2>
+            <p>Необходимо авторизоваться</p>
+        </section>
     </main>
 </div>
-
 <footer class="main-footer">
     <nav class="nav">
         <ul class="nav__list container">
-            <!--заполните этот список из массива категорий-->
-            <?php foreach ($category as $ins) { ?>
-                <li class="nav__item">
-                    <a href="pages/all-lots.html"><?= $ins['name_category'] ?></a>
-                </li>
-            <?php } ?>
+            <li class="nav__item">
+                <a href="all-lots.html">Доски и лыжи</a>
+            </li>
+            <li class="nav__item">
+                <a href="all-lots.html">Крепления</a>
+            </li>
+            <li class="nav__item">
+                <a href="all-lots.html">Ботинки</a>
+            </li>
+            <li class="nav__item">
+                <a href="all-lots.html">Одежда</a>
+            </li>
+            <li class="nav__item">
+                <a href="all-lots.html">Инструменты</a>
+            </li>
+            <li class="nav__item">
+                <a href="all-lots.html">Разное</a>
+            </li>
         </ul>
     </nav>
     <div class="main-footer__bottom container">
@@ -96,10 +110,10 @@
                 <svg width="27" height="27" viewBox="0 0 27 27" xmlns="http://www.w3.org/2000/svg"><circle stroke="#879296" fill="none" cx="13.5" cy="13.5" r="12.666"/><path fill="#879296" d="M13.92 18.07c.142-.016.278-.074.39-.166.077-.107.118-.237.116-.37 0 0 0-1.13.516-1.296.517-.165 1.208 1.09 1.95 1.58.276.213.624.314.973.28h1.95s.973-.057.525-.837c-.38-.62-.865-1.17-1.432-1.626-1.208-1.1-1.043-.916.41-2.816.886-1.16 1.236-1.86 1.13-2.163-.108-.302-.76-.214-.76-.214h-2.164c-.092-.026-.19-.026-.282 0-.083.058-.15.135-.195.225-.224.57-.49 1.125-.8 1.656-.973 1.61-1.344 1.697-1.51 1.59-.37-.234-.272-.975-.272-1.433 0-1.56.243-2.202-.468-2.377-.32-.075-.647-.108-.974-.098-.604-.052-1.213.01-1.793.186-.243.116-.438.38-.32.4.245.018.474.13.642.31.152.303.225.638.214.975 0 0 .127 1.832-.302 2.056-.43.223-.692-.167-1.55-1.618-.29-.506-.547-1.03-.77-1.57-.038-.09-.098-.17-.174-.233-.1-.065-.214-.108-.332-.128H6.485s-.312 0-.42.137c-.106.135 0 .36 0 .36.87 2 2.022 3.868 3.42 5.543.923.996 2.21 1.573 3.567 1.598z"/></svg>
             </a>
         </div>
-        <a class="main-footer__add-lot button" href="add.php">Добавить лот</a>
+        <a class="main-footer__add-lot button" href="add-lot.html">Добавить лот</a>
         <div class="main-footer__developed-by">
             <span class="visually-hidden">Разработано:</span>
-            <a class="logo-academy" href="https://i.gifer.com/758R.mp4">
+            <a class="logo-academy" href="https://htmlacademy.ru/intensive/php">
                 <span class="visually-hidden">HTML Academy</span>
                 <svg width="118" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117.01 40">
                     <path fill="#879296"
@@ -110,8 +124,5 @@
         </div>
     </div>
 </footer>
-
-<script src="flatpickr.js"></script>
-<script src="script.js"></script>
 </body>
 </html>

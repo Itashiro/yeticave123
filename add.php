@@ -2,6 +2,12 @@
 require_once('functions.php');
 require_once('data.php');
 
+/*$login = $data['user-name'];
+$sql = 'SELECT id_user FROM user WHERE login ='.$login;
+$id_user = mysqli_query($link,$sql);
+echo $id_user;*/
+
+
 $i=0;
 $s="";
 $form_class = "";
@@ -38,7 +44,8 @@ if($check){
         'page_name' => 'Добавление лота',
         'is_auth' => $is_auth,
         'user_name' => $user_name,
-        'category' => $category
+        'category' => $category,
+        'data' => $data
     ]);
     print($layout_content);
 }
@@ -51,10 +58,10 @@ else{
             $s = $cat['id_category'];
         }
     }
-    $sql ="INSERT INTO `lot` (`creation_date`, `lot_name`, `descr`, `img`, `start_price`, `end_date`, `iteration`, `id_author`, `id_winner`, `id_category`) VALUES ('2022-05-20','$form_items[0]','$form_items[2]','$uploadfile','$form_items[4]','$form_items[6]','$form_items[5]',1,1,'$s')";
+    $sql ="INSERT INTO `lot` (`creation_date`, `lot_name`, `descr`, `img`, `start_price`, `end_date`, `iteration`, `id_author`, `id_winner`, `id_category`) VALUES ('2022-05-20','$form_items[0]','$form_items[2]','$uploadfile','$form_items[4]','$form_items[6]','$form_items[5]', 1,1,'$s')";
     $result = mysqli_query($link, $sql);
     $sql = 'SELECT MAX(id_lot) as id_lot FROM lot';
     $result = mysqli_query($link,$sql);
     $created_lot = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    header('Location: ../lot.php?id_lot='.$created_lot['id_lot']); 
+    header('Location: ../lot.php?id_lot='.$created_lot['id_lot']);
 }
